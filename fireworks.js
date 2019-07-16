@@ -1,4 +1,5 @@
 
+//CANVAS STUFF
 const canvas = document.getElementById('americaSwag')
 const ctx = canvas.getContext('2d')
 
@@ -44,7 +45,6 @@ class Firework{
         this.report = new Report('pink',1,2000,this.x, this.y, 20);
         this.state.reporting = true;
         console.log('Report created')
-        // this.report.fire();
     }
 
     getState(){
@@ -58,45 +58,45 @@ class Firework{
     }
 }
 
-class Particle{
-    constructor(color, speed, travelTime, x, y, width, height, dx, dy, xDir, yDir){
-        this.color = color;
-        this.speed = speed*1.0;
-        this.travelTime = travelTime;
-        this.x = x*1.0;
-        this.y = y*1.0;
-        this.dx = dx*1.0;
-        this.dy = dy*1.0;
-        this.width = width;
-        this.height = height;
-        this.xDir = xDir*1.0;
-        this.yDir = yDir*1.0;
-        this.startTime = Date.now();
-        this.state = {alive:true};
-        this.gravity = -9.8;
-    }
+// class Particle{
+//     constructor(color, speed, travelTime, x, y, width, height, dx, dy, xDir, yDir){
+//         this.color = color;
+//         this.speed = speed*1.0;
+//         this.travelTime = travelTime;
+//         this.x = x*1.0;
+//         this.y = y*1.0;
+//         this.dx = dx*1.0;
+//         this.dy = dy*1.0;
+//         this.width = width;
+//         this.height = height;
+//         this.xDir = xDir*1.0;
+//         this.yDir = yDir*1.0;
+//         this.startTime = Date.now();
+//         this.state = {alive:true};
+//         this.gravity = -9.8;
+//     }
 
-    update(){
-        if(this.isAlive()){
-            this.x += this.dx/10;
-            this.y -= this.dy/10;
-            ctx.fillStyle = this.color;
-            ctx.fillRect(this.x, this.y, this.width, this.height);
-        }
-    }
+//     update(){
+//         if(this.isAlive()){
+//             this.x += this.dx/10;
+//             this.y -= this.dy/10;
+//             ctx.fillStyle = this.color;
+//             ctx.fillRect(this.x, this.y, this.width, this.height);
+//         }
+//     }
 
-    isAlive(){
-        if(Date.now() < this.startTime + this.travelTime) return true;
-        else{
-            this.state.alive = false;
-            return false;
-        };
-    }
+//     isAlive(){
+//         if(Date.now() < this.startTime + this.travelTime) return true;
+//         else{
+//             this.state.alive = false;
+//             return false;
+//         };
+//     }
 
-    getState(){
-        return this.state;
-    }
-}
+//     getState(){
+//         return this.state;
+//     }
+// }
 
 class Report extends Firework{
     constructor(color, speed, travelTime, x, y, numParticles){
@@ -105,7 +105,6 @@ class Report extends Firework{
         this.particles = [];
         this.state = {alive:true};
         this.generateParticles();
-        // this.startTime
     }
 
     update(){
@@ -197,29 +196,8 @@ class FireworkManager{
             let fireworkState = firework.getState();
             const {fired, reported, reporting} = fireworkState;
             firework.update();
-            // if(fired === true && reported === true && reporting) firework.report.update()
         });
     }
-    // generateFireworks(){
-    //     for(let i=0; i<this.numFireworks; i++){
-    //         let firework = new Firework('green', 2, 2000, 100, 1000);
-    //         this.fireWorks.push(firework);
-    //     }
-    // }
-
-    
-    //update
-
-    //delete
-
-    //add?
-
 }
 
 let fireworkShow = new FireworkManager(2);
-
-//what do we need?
-//Fireworks!
-//Something to manage the fireworks
-//drawing
-//beer

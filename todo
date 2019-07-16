@@ -1,0 +1,18 @@
+//What do we need?
+
+//*****MVP***********/
+//Locate canvas element (show manager)
+//Firework manager (show manager)
+//Firework is added to firework manager list
+//Firework "fires" from bottom of screen
+//Firework moves along a given vector (x,y)
+//A trail follows the firework
+//Firework explodes after a certain time (fusetime)
+//Particles shower down from the explosion
+//Firework is removed from the fireworks list
+
+//Features to add:
+//Boom boom sound
+//Sizzle sound!
+//Control interface
+//
